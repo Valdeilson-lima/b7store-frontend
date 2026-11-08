@@ -1,10 +1,14 @@
 import { Banners } from "@/componentes/home/banners";
+import { MostSoldProduct } from "@/componentes/home/most-sold-product";
+import { MostViewedProduct } from "@/componentes/home/most-viewed-product";
+import { ProductListSkeleton } from "@/componentes/home/product-list-skeleton";
 import { data } from "@/data";
 import { Truck, BadgePercent, ArrowRightLeft } from "lucide-react";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-full max-w-7xl mx-auto p-6">
       <Banners list={data.banners} />
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-8 mt-10">
         <div className="flex flex-1 py-6 border border-blue-200 rounded-md">
@@ -41,6 +45,13 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Suspense fallback={<ProductListSkeleton />}>
+        <MostViewedProduct />
+      </Suspense>
+
+      <Suspense fallback={<ProductListSkeleton />}>
+        <MostSoldProduct />
+      </Suspense>
     </div>
   );
 }

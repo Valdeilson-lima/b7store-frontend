@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { HeaderSearch } from "./header-search";
 
-interface MenuItem {
+export interface MenuItem {
   label: string;
   href: string;
 }

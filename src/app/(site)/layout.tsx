@@ -1,3 +1,4 @@
+import { Footer } from "@/componentes/layout/footer";
 import { Header } from "@/componentes/layout/header";
 
 export default function RootLayout({
@@ -9,6 +10,7 @@ export default function RootLayout({
     <div>
       <Header />
       <main className="w-full max-w-7xl mx-auto p-6">{children}</main>
+      <Footer />
     </div>
   );
 }
